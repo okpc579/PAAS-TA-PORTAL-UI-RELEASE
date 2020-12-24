@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -rf /var/vcap/packages/apache2/cgi-bin/*
+rm -rf /var/vcap/packages/apache2/manual/*

@@ -133,9 +133,10 @@ ServerAdmin you@example.com
 # features.  
 #
 <Directory />
-  Options FollowSymLinks
+  #Options FollowSymLinks
   AllowOverride none
   Require all denied
+  LimitRequestBody <%= p('limit_request_body')%>
 </Directory>
 
 <VirtualHost *:<%= p('server.port')%>>
@@ -159,11 +160,12 @@ DocumentRoot "<%= p('webDir')%>"
 # below.
 #
 <Directory "<%= p('webDir')%>">
-  Options FollowSymLinks Multiviews
+  #Options FollowSymLinks Multiviews
   MultiviewsMatch Any
   AllowOverride all
   FallbackResource index.html
   Require all granted
+  LimitRequestBody <%= p('usr_limit_request_body')%>
   <Limit OPTIONS>
     Order deny,allow
     Deny from all

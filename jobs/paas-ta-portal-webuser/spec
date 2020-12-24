@@ -7,6 +7,7 @@ packages:
 templates:
   bin/httpd_ctl: bin/httpd_ctl
   bin/pre_start.erb: bin/pre_start
+  bin/post-start: bin/post-start
   bin/monit_debugger: bin/monit_debugger
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
@@ -15,7 +16,7 @@ templates:
   config/config.json.erb: config/config.json
 
 provides:
-  - {name: paas-ta-portal-webuser-link, type: paas-ta-portal-webuser, properties: [logPath, webDir, server.port, cf.uaa.clientsecret, monitoring, quantity, automaticApproval, cf_api_version, webadmin_ips]}
+  - {name: paas-ta-portal-webuser-link, type: paas-ta-portal-webuser, properties: [logPath, webDir, server.port, cf.uaa.clientsecret, monitoring, quantity, automaticApproval, cf_api_version, webadmin_ips, limit_request_body, usr_limit_request_body]}
 
 consumes:
   - name: webadmin-link
@@ -44,3 +45,7 @@ properties:
     description: 'cf api version'
   webadmin_ips:
     description: 'webadmin ips'
+  limit_request_body:
+    description: 'Apache Limiting Upload File Size'
+  usr_limit_request_body:
+    description: 'Apache Limiting Upload File Size'
