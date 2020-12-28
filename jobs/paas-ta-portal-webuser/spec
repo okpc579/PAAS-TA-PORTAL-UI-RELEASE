@@ -44,3 +44,7 @@ properties:
     description: 'cf api version'
   webadmin_ips:
     description: 'webadmin ips'
+  ssh_uri:
+    description: 'ssh uri'
+  user_app_size_mb:
+    description: 'user upload app size(MB)'
